@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja" class="body-color">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- リセットcss読み込み -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- style.css読み込み -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- jquery読み込み -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>ジャンケンゲーム</title>
+</head>
+<body>
+    <!-- タイトルエリア -->
+    <div class="main">
+        <h1 class="title">ジャンケンゲーム</h1>
+    </div>
+    
+    <!-- 結果表示エリア -->
+    <div class="result">
+        <h2 class="text">相手が何か言いたげです</h2>
+       <p class="result-img"><img src="images/man-truth.png" alt=""></p>
+       <div class="result-text"></div>
+    </div>
+
+    <!-- 入力エリア -->
+    <div class="my-hand">
+        <ul id="hand-list" class="hand-list">
+            <li id="gu" class="hand" value="1"><p><img class="hand-img" src="images/jin-gu.png" alt=""></p></li>
+            <li id="choki" class="hand" value="2"><p><img class="hand-img" src="images/jin-choki.png" alt=""></p></li>
+            <li id="pa" class="hand" value="3"><p><img class="hand-img" src="images/jin-pa.png" alt=""></p></li>
+        </ul>
+    </div>
+    <a class="mans-select" href="jin_0start.html">＜＜対戦相手を選び直す</a>
+
+<!-- js -->
+<script>
+    //#hand-listが押された時の関数
+    $("#gu").on("click",function(){
+        let num = Math.floor( Math.random()*3 );
+        console.log(num);
+
+        if (num == 0){
+            var result = window.confirm('✊🏻相手も「グーを出す」と言っています\n✊🏻あなたもグーでよろしいですか？');
+            console.log( result );
+            if( result ) {
+                $('.text').text("相手は宣言通りグーを出しました");
+                $('.result-img').html('<img src="images/jin-gu.png" alt="">');
+                $('.result-text').text("引き分け");
+                console.log('OKがクリックされました');
+                }
+            else {
+                window.location.href = 'jin_11man.html';
+                console.log('キャンセルがクリックされました');
+            }
+            
+
+        }else if (num == 1){
+            var result = window.confirm('✌🏻相手が「チョキを出す」と言っています\n✊🏻あなたはグーでよろしいですね？');
+            console.log( result );
+            if( result ) {
+                $('.text').text("相手は宣言通りチョキを出しました");
+                $('.result-img').html('<img src="images/jin-choki.png" alt="">');
+                $('.result-text').text("✨あなたの勝ちです✨");
+                console.log('OKがクリックされました');
+                }
+            else {
+                window.location.href = 'jin_11man.html';
+                console.log('キャンセルがクリックされました');
+            }
+
+
+        }else if (num == 2){
+            var result = window.confirm('🖐🏻相手は「パーを出す」と言っています\n✊🏻本当にグーでよろしいですか？');
+            console.log( result );
+            if( result ) {
+                $('.text').text("相手は宣言通りパーを出しました");
+                $('.result-img').html('<img src="images/jin-pa.png" alt="">');
+                $('.result-text').text("あなたの負けです💦");
+                console.log('OKがクリックされました');
+                }
+            else {
+                window.location.href = 'jin_11man.html';
+                console.log('キャンセルがクリックされました');
+            }
+
+        }
+
+        setTimeout(function(){
+        window.location.href = 'jin_0start.html';
+        }, 5*1000);
+    })
+
+    $("#choki").on("click",function(){
+        let num = Math.floor( Math.random()*3 );
+        console.log(num);
+
+        if (num == 0){
+            var result = window.confirm('✊🏻相手が「グーを出す」と言っています\n✌🏻本当にチョキでよろしいですか？');
+            console.log( result );
+            if( result ) {
+                $('.text').text("相手は宣言通りグーを出しました");
+                $('.result-img').html('<img src="images/jin-gu.png" alt="">');
+                $('.result-text').text("あなたの負けです💦");
+                console.log('OKがクリックされました');
+                }
+            else {
+                window.location.href = 'jin_11man.html';
+                console.log('キャンセルがクリックされました');
+            }
+
+        }else if (num == 1){
+            var result = window.confirm('✌🏻相手も「チョキを出す」と言っています\n✌🏻あなたもチョキでよろしいですか？');
+            console.log( result );
+            if( result ) {
+                $('.text').text("相手は宣言通りチョキを出しました");
+                $('.result-img').html('<img src="images/jin-choki.png" alt="">');
+                $('.result-text').text("引き分け");
+                console.log('OKがクリックされました');
+                }
+            else {
+                window.location.href = 'jin_11man.html';
+                console.log('キャンセルがクリックされました');
+            }
+
+        }else if (num == 2){
+            var result = window.confirm('🖐🏻相手は「パーを出す」と言っています\n✌🏻あなたはチョキでよろしいですね？');
+            console.log( result );
+            if( result ) {
+                $('.text').text("相手は宣言通りパーを出しました");
+                $('.result-img').html('<img src="images/jin-pa.png" alt="">');
+                $('.result-text').text("✨あなたの勝ちです✨");
+                console.log('OKがクリックされました');
+                }
+            else {
+                window.location.href = 'jin_11man.html';
+                console.log('キャンセルがクリックされました');
+            }
+        
+        }
+
+        setTimeout(function(){
+        window.location.href = 'jin_0start.html';
+        }, 5*1000);
+    })
+
+    $("#pa").on("click",function(){
+        let num = Math.floor( Math.random()*3 );
+        console.log(num);
+
+        if (num == 0){
+            var result = window.confirm('✊🏻相手は「グーを出す」と言っています\n🖐🏻あなたはパーでよろしいですね？');
+            console.log( result );
+            if( result ) {
+                $('.text').text("相手は宣言通りグーを出しました");
+                $('.result-img').html('<img src="images/jin-gu.png" alt="">');
+                $('.result-text').text("✨あなたの勝ちです✨");
+                console.log('OKがクリックされました');
+                }
+            else {
+                window.location.href = 'jin_11man.html';
+                console.log('キャンセルがクリックされました');
+            }
+
+        }else if (num == 1){
+            var result = window.confirm('✌🏻相手が「チョキを出す」と言っています\n🖐🏻本当にはパーでよろしいですか？');
+            console.log( result );
+            if( result ) {
+                $('.text').text("相手は宣言通りチョキを出しました");
+                $('.result-img').html('<img src="images/jin-choki.png" alt="">');
+                $('.result-text').text("あなたの負けです💦");
+                console.log('OKがクリックされました');
+                }
+            else {
+                window.location.href = 'jin_11man.html';
+                console.log('キャンセルがクリックされました');
+            }
+
+        }else if (num == 2){
+            var result = window.confirm('🖐🏻相手も「パーを出す」と言っています\n🖐🏻あなたもパーでよろしいですか？');
+            console.log( result );
+            if( result ) {
+                $('.text').text("相手は宣言通りパーを出しました");
+                $('.result-img').html('<img src="images/jin-pa.png" alt="">');
+                $('.result-text').text("引き分け");
+                console.log('OKがクリックされました');
+                }
+            else {
+                window.location.href = 'jin_11man.html';
+                console.log('キャンセルがクリックされました');
+            }
+        }
+
+        setTimeout(function(){
+        window.location.href = 'jin_0start.html';
+        }, 5*1000);
+    })
+    
+</script>
+</body>
+</html>

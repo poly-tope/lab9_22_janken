@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja" class="body-color">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- リセットcss読み込み -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- style.css読み込み -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- jquery読み込み -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <title>ジャンケンゲーム</title>
+</head>
+<body>
+    <!-- タイトルエリア -->
+    <div class="main">
+        <h1 class="title">ジャンケンゲーム</h1>
+    </div>
+
+    <!-- 結果表示エリア -->
+    <div class="mans-result">
+       <h2 class="title-text">対戦相手</h2>
+    </div>
+
+    <!-- 入力エリア -->
+    <div class="my-hand">
+        <ul id="mans-list" class="mans-list">
+            <li id="man-truth" class="hand" value="1"><p><img class="man-img" src="images/man-truth.png" alt=""></p></li>
+            <li id="man-pa" class="hand" value="2"><p><img class="man-img" src="images/man-pa.png" alt=""></p></li>
+            <li id="man-lie" class="hand" value="3"><p><img class="man-img" src="images/man-lie.png" alt=""></p></li>
+        </ul>
+    </div>
+
+<!-- js -->
+<script>
+   $("#man-truth").click(function() {
+        location.href = 'jin_11man.html';
+    })
+
+  $("#man-pa").click(function() {
+      location.href = 'jin_12man.html';
+    })
+
+  $("#man-lie").click(function() {
+      location.href = 'jin_13man.html';
+    })
+    
+</script>
+</body>
+</html>
